@@ -19,3 +19,19 @@ total_summary <- suspension_data %>%
 # Create lot_summary
 lot_summary <- suspension_data %>% group_by(Manufacturing_Lot) %>% 
   summarize(Mean=mean(PSI),Median=median(PSI),Variance=var(PSI),SD=sd(PSI), .groups='keep')
+
+# Deliverable 3
+
+# write an RScript using the t.test() function 
+
+#test on all lots
+t.test(suspension_data$PSI,mu = 1500)
+
+# test on Lot 1
+t.test(subset(suspension_data,Manufacturing_Lot=="Lot1")$PSI,mu = 1500)
+
+# test on Lot 2
+t.test(subset(suspension_data,Manufacturing_Lot=="Lot2")$PSI,mu = 1500)
+
+# test on Lot 3
+t.test(subset(suspension_data,Manufacturing_Lot=="Lot3")$PSI,mu = 1500)
